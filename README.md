@@ -115,8 +115,39 @@ x-restli-method: batch_create</code></pre>
 
   [https://developer.linkedin.com/docs/guide/v2](url)
 
-  查询的是job和people接口，当前接口受到限制，按道理是需要走商务的人才计划，对方才给api。
+  查询的是job和people接口，当前接口受到限制，必须需要走商务的人才计划，按照接入ast才能拿到数据。
 
+- 填写表格
+https://business.linkedin.com/talent-solutions/ats-partners/partner-application
+
+- 将ast插件集成到前端
+https://learn.microsoft.com/en-us/linkedin/talent/apply-connect/customer-configuration
+
+- HTTPS请求
+
+<pre><code>POST https://api.linkedin.com/v2/atsIntegrations?ids[0].integrationContext={integrationContext}&ids[0].integrationType={integrationType}&ids[0].tenantType={tenantType}&ids[0].dataProvider=ATS
+Authorization: Bearer {token}
+x-restli-method: batch_partial_update
+</code></pre>
+
+- 请求主体
+
+<pre><code>{
+  "entities": {
+    "integrationContext=urn:li:organization:1234&integrationType=APPLY_CONNECT&tenantType=JOBS&dataProvider=ATS": {
+      "patch": {
+        "$set": {
+          "integrationName": "My Customer's LinkedIn Apply Connect Integration"
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+
+- 注意
+目前这里都是黑盒，这里需要看到ast以后在仔细研究一下数据来源，目前能够给到的文档都是由ast这个集成库获取数据，这个借口参数如何，需要商务对接才能看到。
 
 ### IM接口
 - 链接
