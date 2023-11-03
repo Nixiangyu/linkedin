@@ -118,10 +118,12 @@ x-restli-method: batch_create</code></pre>
   查询的是job和people接口，当前接口受到限制，必须需要走商务的人才计划，按照接入ast才能拿到数据。
 
 - 填写表格
-https://business.linkedin.com/talent-solutions/ats-partners/partner-application
+
+  [https://business.linkedin.com/talent-solutions/ats-partners/partner-application](url)
 
 - 将ast插件集成到前端
-https://learn.microsoft.com/en-us/linkedin/talent/apply-connect/customer-configuration
+  
+  [https://learn.microsoft.com/en-us/linkedin/talent/apply-connect/customer-configuration](url)
 
 - HTTPS请求
 
